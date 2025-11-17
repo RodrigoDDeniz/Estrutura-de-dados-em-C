@@ -7,8 +7,7 @@ void insertionSort(int arr[], int n) {
         key = arr[i];
         j = i - 1;
         
-        // Move os elementos do arr[0..i-1] que são maiores que key
-        // para uma posição à frente de sua posição atual
+        // Move elementos maiores que "key" uma posição à frente
         while (j >= 0 && arr[j] > key) {
             arr[j + 1] = arr[j];
             j = j - 1;
@@ -26,16 +25,25 @@ void printArray(int arr[], int n) {
 }
 
 int main() {
-    int arr[] = {12, 11, 13, 5, 6};
-    int n = sizeof(arr)/sizeof(arr[0]);
-    
+    int n;
+
+    printf("Digite o tamanho do array: ");
+    scanf("%d", &n);
+
+    int arr[n];  // cria vetor com tamanho escolhido
+
+    printf("Digite %d elementos:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
     printf("Array original: ");
     printArray(arr, n);
-    
+
     insertionSort(arr, n);
-    
+
     printf("Array ordenado (Insertion Sort): ");
     printArray(arr, n);
-    
+
     return 0;
 }
