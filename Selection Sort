@@ -29,16 +29,30 @@ void printArray(int arr[], int n) {
 }
 
 int main() {
-    int arr[] = {64, 25, 12, 22, 11};
-    int n = sizeof(arr)/sizeof(arr[0]);
-    
+    int n;
+
+    printf("Digite o tamanho do array (max 5): ");
+    scanf("%d", &n);
+
+    if (n < 1 || n > 5) {
+        printf("Tamanho inválido! O tamanho deve ser entre 1 e 5.\n");
+        return 1;
+    }
+
+    int arr[5]; // máximo permitido
+
+    printf("Digite %d elementos:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
     printf("Array original: ");
     printArray(arr, n);
-    
+
     selectionSort(arr, n);
-    
+
     printf("Array ordenado (Selection Sort): ");
     printArray(arr, n);
-    
+
     return 0;
 }
