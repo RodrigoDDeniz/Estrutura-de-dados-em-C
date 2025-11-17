@@ -5,7 +5,7 @@ void selectionSort(int arr[], int n) {
     int i, j, min_idx, temp;
     
     for (i = 0; i < n-1; i++) {
-        // Encontra o menor elemento no array não ordenado
+        // Encontra o menor número no array não ordenado
         min_idx = i;
         for (j = i+1; j < n; j++) {
             if (arr[j] < arr[min_idx]) {
@@ -13,7 +13,7 @@ void selectionSort(int arr[], int n) {
             }
         }
         
-        // Troca o menor elemento encontrado com o primeiro elemento
+        // Troca o menor número encontrado com o primeiro da parte não ordenada
         temp = arr[min_idx];
         arr[min_idx] = arr[i];
         arr[i] = temp;
@@ -31,17 +31,17 @@ void printArray(int arr[], int n) {
 int main() {
     int n;
 
-    printf("Digite o tamanho do array (max 5): ");
+    printf("Digite o tamanho do array: ");
     scanf("%d", &n);
 
-    if (n < 1 || n > 5) {
-        printf("Tamanho inválido! O tamanho deve ser entre 1 e 5.\n");
+    if (n < 1) {
+        printf("Tamanho inválido! O tamanho deve ser maior que 0.\n");
         return 1;
     }
 
-    int arr[5]; // máximo permitido
+    int arr[n]; // agora o tamanho depende do usuário (VLA)
 
-    printf("Digite %d elementos:\n", n);
+    printf("Digite %d números:\n", n);
     for (int i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
     }
