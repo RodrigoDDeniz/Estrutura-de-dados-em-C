@@ -24,16 +24,25 @@ void printArray(int arr[], int n) {
 }
 
 int main() {
-    int arr[] = {64, 34, 25, 12, 22, 11, 90};
-    int n = sizeof(arr)/sizeof(arr[0]);
-    
+    int n;
+
+    printf("Digite o tamanho do array: ");
+    scanf("%d", &n);
+
+    int arr[n];  // Vetor com tamanho definido pelo usuário
+
+    printf("Digite %d elementos:\n", n);
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
+
     printf("Array original: ");
     printArray(arr, n);
-    
+
     bubbleSort(arr, n);
-    
+
     printf("Array ordenado (Bubble Sort): ");
     printArray(arr, n);
-    
+
     return 0;
 }
